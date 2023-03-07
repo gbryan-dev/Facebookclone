@@ -1,0 +1,531 @@
+
+@font-face {
+    font-family: 'Segoe UI Historic';
+    src: url('../FONTS/Segoe\ ui\ historic.ttf') format('truetype');
+  }
+  
+
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth;}
+
+/* target the entire scrollbar */
+::-webkit-scrollbar {
+  width: 17px; /* width of the scrollbar */
+  height: 10px;}
+
+/* target the draggable portion of the scrollbar */
+::-webkit-scrollbar-thumb {
+ /* color of the scrollbar thumb */
+  /* roundness of the scrollbar thumb */
+  background-color: #606163;
+  border:2.5px solid #37383a;
+  
+}
+
+/* target the track or the background of the scrollbar */
+::-webkit-scrollbar-track {
+  background: #3a3b3d; /* color of the scrollbar track */
+  
+}
+
+
+.container {
+  display: flex;
+  position: relative;
+    margin: 0px auto;
+    width: 100%;
+    max-width: 1900px;
+    height: auto;
+    justify-content: space-between;
+}
+
+.leftSide, .rightSide {   position: sticky;
+  top: 0px;
+  padding-top: 70px;
+  width: 100%;
+  height: 100vh;
+   width: 360px; }
+
+
+  .leftSide {   overflow-y: auto; overflow-x: hidden;
+    left: 0;  padding-left: 8px; display: flex; flex-direction: column;} 
+  
+    .rightSide { top: 0px;
+      padding-top: 70px;  overflow-y: scroll; overflow-x: hidden; background-color: transparent;
+      right: 2px;  padding-left: 5px; padding-bottom:10px; width: 355px;  }
+  
+
+.main { margin-top: 80px; width: 100%; max-width: 744px;  height: auto;
+  padding-left: 32px; padding-right: 32px; padding-bottom: 32px;
+}
+
+.maincontainer { margin: 0px; width: 100%; height: 293px; background-color: #242526;
+border-radius: 8px; overflow: hidden; margin-bottom: 16px; position: relative; }
+
+
+
+.mainpad { height: auto;background-color: #242526; width: 100%; padding-bottom: 10px; border-radius: 8px; overflow: hidden; margin-bottom: 16px;  padding-top: 10px; padding-left: 16px; padding-right: 16px;}
+
+.woym { margin: auto; width: 100%; height: 53px; border-bottom: .1px solid rgba(62, 64, 66, 0.767); display: flex;
+margin-bottom: 8px;}
+.woym .woymtext { margin: 0px auto; margin-left:9px; width:  100%; height: 40px; background-color:#3A3B3C; border-radius: 20px;
+    padding-top: 9px;
+    padding-left: 12px;
+font-weight: 400;
+   margin-left: 8px; 
+   cursor: pointer;
+    letter-spacing: .2px;
+    font-family: 'Segoe UI Historic'; font-size: 17px; color: rgb(176, 179, 184);
+}
+
+.woym .woymtext:hover { background-color:#4d4f50b6;}
+
+.main .imgME {
+  width: 42px; height: 40px;  border-radius: 100%; padding-right: 10px; padding-left: 4px; cursor: pointer;
+  
+  background-position: 0px 0px; 
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+.loadingpost { margin-bottom: 16px; position: relative; border-radius: 8px; padding: 16px;  background-color: #242526; height: 270px; width: 100%;}
+.loadingpost div { display: flex;}
+.loadingpost .imgME { margin: 0px; background-color: #2A2B2D; 
+  width: 42px; height: 40px;  border-radius: 100%; padding-right: 10px; padding-left: 4px; cursor: pointer;
+}
+
+.loadingtext { position: relative; margin: 0px; margin-left: 10px; margin-top: 6px; border-radius: 20px; height: 11px; width: 80px; background-color: #2A2B2D; }
+.loadingtext::before { content: ''; position: absolute; left: 0px; top: 17px; border-radius: 20px; height: 11px; width: 100px; background-color: #2A2B2D;}
+.loadingbtn { position: absolute; left: 0px; bottom: 20px; width: 100%; height: 10px; display: flex; justify-content: space-between; 
+justify-content: center; align-items: center; align-content: center;}
+
+.loadingbtn div {margin: auto; height: 10px; width: 10%;border-radius: 20px;background-color: #2A2B2D;}
+
+
+.woymflex {  margin: 0px; width: 100%; height: 40px; display: flex; }
+.woymbtn {  flex-grow:1; border-radius: 8px; padding-left: 15px; height: 40px; cursor: pointer; display: flex; justify-content: center; align-items: center; align-content: center; text-align: center;}
+ .woymbtn:hover { background-color: #404142d8;}
+
+.storells {
+  margin: 0px; width: 100%; height: 60px; background-color: transparent;
+  border-bottom: .1px solid rgba(62, 64, 66, 0.219);
+  padding-top: 2px; padding-left: 18px; padding-right: 18px; display: flex; justify-content: center;
+}
+
+.storells div { margin: auto; min-width: 110px; width: 216px; height: 89%; 
+ text-align: center; display: flex; justify-content: center; 
+  padding-top: 15px; cursor: pointer; border-radius: 10px; border-bottom: 3px solid transparent;
+}
+
+.storells div.active {  padding-top: 18px;background-color: transparent; border-radius: 0px; border-bottom: 3px solid #2E89FF;  height: 100%}
+
+.storells div.active:hover { background-color: transparent;}
+
+.storells div:hover { background-color: #3A3B3C;}
+
+.storells div span {   -webkit-text-stroke-width: .3px; font-weight: 500; font-size: 15px; font-family: 'Segoe UI Historic';
+   letter-spacing: .4px; padding-left: 8px;}
+
+.stories {
+  margin: 0px; width: 100%; margin-top: 16px; margin-left: 0px; padding-left: 16px; margin-bottom: 16px;  height: 203px;
+  display: flex; flex-wrap: nowrap; overflow-x: scroll; padding-right: 16px; transition: 1s; padding-bottom: 3px;
+}
+
+.stories button {  border: none; outline: none;  height: 48px; width: 48px; border-radius: 100%; 
+  cursor: pointer; z-index: 555; padding-top: 5px;
+  background-color: rgb(62, 64, 66);}
+
+  .Next {
+    position: absolute;
+    right: 20px;
+    top: 60%;
+    transform: translateY(-50%);
+  }
+
+  .Prev {
+    position: absolute;
+    left: 15px;
+    top: 60%;
+    transform: translateY(-50%);
+  }
+
+.stories button:hover { 
+  background-color: rgb(71, 73, 75);
+  } 
+  
+
+.stories::-webkit-scrollbar {
+  width: 8px; 
+  height: 0px;
+  background-color: transparent;
+  border: none;
+}
+
+.stories::-webkit-scrollbar-thumb {
+  /* color of the scrollbar thumb */
+   /* roundness of the scrollbar thumb */
+   background-color: transparent;
+   border-radius: 5px;
+   border: none;
+   
+ }
+
+
+.createStory {
+  margin: 0px; margin-right: 8px; height: 100%; width: 110px;
+  border-radius: 13px;  flex: 0 0 auto;
+  overflow: hidden; box-shadow: 0px 0px 2px #111111;;
+  cursor: pointer; position: relative; 
+  display: flex;
+  flex-direction: column;
+}
+
+.createStory .storyName { color: #9FA0A5; font-size: 13px; font-family: 'Segoe UI Historic';
+  position: absolute;
+  letter-spacing: .2px;
+  left: 20px;
+  bottom: 8px;
+  width: 100%;
+  -webkit-text-stroke-width: .2px;
+-webkit-text-stroke-color: rgb(228, 230, 235);}
+
+
+.createStoryPic {
+  margin: 0px;
+  height: 75%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.createStoryPlus { position: absolute;
+left: 50%;
+bottom: 12px;
+transform: translate(-50%,-50%);
+width: 38px;
+height: 38px;
+border-radius: 100%;
+background-color: #3578E5;
+border: 3px solid #242526;
+display: flex;
+justify-content: center;
+padding-top: 5px;
+}
+
+.createStoryPic div{
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+  background-position: center 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  transform: scale(1.2);
+}
+
+.createStoryPic:hover {  transform: scale(1.010);}
+
+.createStoryPic div:before {content: ''; position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+.storycon {margin: 0px; margin-right: 7px; height: 100%; width: 113px; max-width: 113px;
+  border-radius: 10px;  flex: 0 0 auto; cursor: pointer; overflow: hidden; position: relative;
+  background-color: #3A3B3C;}
+
+
+.storyIMG { margin: 0px; height: 100%; width: 113px; position: relative; z-index: 2;}
+
+.storyCover { position: absolute; left: 0px; top:0px; height: 100%; width: 100%; z-index: 33;
+  box-shadow: -1px -28px 65px -21px rgba(0,0,0,0.75) inset;
+  -webkit-box-shadow: -1px -28px 65px -21px rgba(0,0,0,0.75) inset;
+  -moz-box-shadow: -1px -28px 65px -21px rgba(0,0,0,0.75) inset;}
+
+.storycon:hover .storyIMG { transform: scale(1.010);}
+.storycon:hover .storyCover { background-color: rgba(0, 0, 0, 0.1)}
+
+.storyName { color: white; font-size: 13px; font-family: 'Segoe UI Historic';
+  position: absolute;
+  left: 12px;
+  bottom: 8px;
+  width: 100%;
+  -webkit-text-stroke-width: .2px;
+-webkit-text-stroke-color: rgb(228, 230, 235);}
+
+.storyName span { position: absolute;
+  left: 16px;
+  bottom: 1px;}
+
+.storyOwner {  position: absolute;
+  left: 13px;
+  top: 13px;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  border: 3px solid #297BE6;
+  outline: 1px solid #297BE6
+}
+
+
+
+
+
+.leftCon { margin: 0px; margin-bottom: 0px; width: 345px; height: 51px; padding: 0px 8px;  border-radius: 8px;padding-top: 7px; cursor: pointer; display: flex;
+  position: relative; 
+}
+
+
+
+/* target the entire scrollbar */
+.leftSide::-webkit-scrollbar {
+  width: 8px; 
+}
+
+.leftSide::-webkit-scrollbar:hover {
+}
+
+/* target the draggable portion of the scrollbar */
+.leftSide::-webkit-scrollbar-thumb {
+ /* color of the scrollbar thumb */
+  /* roundness of the scrollbar thumb */
+  background-color: transparent;
+  border-radius: 5px;
+  border: none;
+  
+}
+
+.leftSide:hover::-webkit-scrollbar-thumb {
+  background-color: #606163;
+}
+
+
+/* target the track or the background of the scrollbar */
+.leftSide::-webkit-scrollbar-track {
+  background: transparent; /* color of the scrollbar track */
+  
+}
+
+
+
+.leftCon:hover { background-color: #3a3b3cd5;}
+
+.imgME {
+    width: 36px; height: 36px; background-color: transparent; border-radius: 100%; padding-right: 16px; padding-left: 4px; cursor: pointer;
+    
+    background-position: 0px 0px; 
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.ShortcutIMG {
+  width: 36px; height: 36px;  border-radius: 10px;
+  background-position: 0px 0px; 
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.GCPIC { position: relative; margin: 0px;  width: 36px; height: 36px; overflow: hidden; border-radius: 100%;}
+ .GCPIC img { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); height: 40px; width: 50px;}
+
+.span13 { position: relative; font-weight: 400; width: 200px;
+    margin-top: 7px; margin-left: 11.5px; 
+    letter-spacing: .2px;
+    text-transform: lowercase;
+    font-family: 'Segoe UI Historic'; font-size: 13px; color: rgb(176, 179, 184);}
+
+
+.span15 { position: relative; font-weight: 500; width: 200px;
+  -webkit-text-stroke-width: .2px;
+-webkit-text-stroke-color: rgb(228, 230, 235);
+    margin-top: 7px; margin-left: 11.5px; 
+    letter-spacing: .2px;
+    font-family: 'Segoe UI Historic'; font-style: normal; font-size: 15px; color: rgb(228, 230, 235);}
+
+.span17 { position: relative; font-weight: 500;
+      -webkit-text-stroke-width: .2px;
+    -webkit-text-stroke-color: rgb(228, 230, 235);
+        margin-top: 7px; margin-left: 11.5px; 
+        letter-spacing: .2px; opacity: .9;
+        font-family: 'Segoe UI Historic'; font-style: normal; font-size: 17px; color: rgb(228, 230, 235);}
+
+.birthdays { margin-left: 11.5px; margin-top: -2px; font-family: 'Segoe UI Historic'; color:rgb(228, 230, 235); font-size: 15px; font-weight: 300; }
+
+.birthdays a { font-size: 500;  -webkit-text-stroke-width: .2px;
+  -webkit-text-stroke-color: rgb(228, 230, 235);}
+
+.leftCon .SeeMore {
+  text-align: center; padding-top: 8px;
+  width: 36px; height: 36px; background-color: #303233; border-radius: 100%;
+}
+
+.leftCon:hover .SeeMore {
+  background-color: #47494b;
+}
+
+.separator { margin-top: 7px; margin-left: 8px; margin-right: 8px; border-top: .5px solid rgb(62, 64, 66); width: 328px; height: 1px;}
+
+.Rightseparator { margin-top: 7px; margin-left: 10px; margin-right: 0px; border-top: .5px solid rgb(62, 64, 66); width: 335px; height: 1px;}
+
+/* .leftCon span::before {
+    content: attr(data-content);
+    position: absolute;
+    left: .5px;
+    top: .3px;
+    font-weight: 500;
+  } */
+
+
+
+
+/* target the entire scrollbar */
+.rightSide::-webkit-scrollbar {
+  width: 8px; 
+}
+
+.rightSide::-webkit-scrollbar:hover {
+}
+
+/* target the draggable portion of the scrollbar */
+.rightSide::-webkit-scrollbar-thumb {
+ /* color of the scrollbar thumb */
+  /* roundness of the scrollbar thumb */
+  background-color: transparent;
+  border-radius: 5px;
+  border: none;
+  
+}
+
+.rightSide:hover::-webkit-scrollbar-thumb {
+  background-color: #606163;
+}
+
+
+/* target the track or the background of the scrollbar */
+.rightSide::-webkit-scrollbar-track {
+  background: transparent; /* color of the scrollbar track */
+  
+}
+
+
+
+  .sponsored { 
+    margin-top: 7px;
+    margin-bottom: 0px;
+    display: flex;
+    width: 345px;
+    height: 145px;
+    cursor: pointer;
+    border-radius: 8px;
+    padding-left: 8px;
+    padding-top: 8px;
+  }
+
+  .sponsored:hover { background-color: #404142d8;}
+
+  .sponimg {
+    margin: 0px;
+    border-radius: 8px;
+    height: 131px;
+    width: 131px;
+    margin-right: 10px;
+    overflow: hidden;
+  }
+
+  .sponimg img { height: 100%; width: 100%;}
+  .spontext { 
+    margin: 0px; width: 0px;
+   padding-top: 30px; 
+  }
+
+  .Contacts { position: relative; margin-bottom: 10px;}
+  .contactIcons {  position: absolute; right: 0px; top: -3px; display: flex; }
+  .contactIcons div {margin-left: 3px; margin-right: 3px;  height: 33px; width: 33px;
+  padding-top: 6px; padding-left: 8px; border-radius: 100%; cursor: pointer;
+  }
+  .contactIcons div:hover { background-color: #4041428c;}
+  
+
+  .copyright {
+    padding-top:30px;
+    padding-right: 30px;
+    flex-grow: 1; 
+    justify-content: center;
+    align-items: center; text-align: center; }
+
+  .footer_copyright {
+    margin: auto;
+    padding-right: 30px;
+    color: white;
+    font-family: 'Poppins';
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
+  .footer_copyright div { 
+    margin: auto;
+    display: flex; justify-content: center;
+    align-items: center; text-align: center;
+
+  }
+
+  .sol-icon { -webkit-animation: beat .25s infinite alternate;
+    -moz-animation: beat .25s infinite alternate;
+    -ms-animation: beat .25s infinite alternate;
+    -o-animation: beat .25s infinite alternate;
+    animation: beat .25s infinite alternate;
+    -webkit-transform-origin: center;
+    -moz-transform-origin: center;
+    -o-transform-origin: center;
+    -ms-transform-origin: center;
+    transform-origin: center;}
+  
+  @keyframes beat{
+    to {
+       -webkit-transform: scale(1.4);
+        -moz-transform: scale(1.4);
+        -o-transform: scale(1.4);
+        -ms-transform: scale(1.4);
+        transform: scale(1.4);
+    }
+   
+   }
+   
+   @-moz-keyframes beat {
+    to {
+      -moz-transform: scale(1.4);
+      transform: scale(1.4);
+    }
+   
+   }
+   
+   @-webkit-keyframes beat{
+    to {
+      -webkit-transform: scale(1.4);
+      transform: scale(1.4);
+    }
+   
+   }
+   
+   @-ms-keyframes beat {
+    to {
+      -ms-transform: scale(1.4);
+      transform: scale(1.4);
+    }
+   
+   }
+   
+   @-o-keyframes beat {
+    to {
+      -o-transform: scale(1.4);
+      transform: scale(1.4);
+    }
+   
+   } 
